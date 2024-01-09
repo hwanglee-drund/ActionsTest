@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-    name: tests
-
-on: [push]
-
 jobs:
   run_tests:
     runs-on: macos-13
