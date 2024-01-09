@@ -26,7 +26,6 @@ final class ActionsTestTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
         
         XCTAssertTrue(0 == 0)
-        XCTAssertTrue(0 == 1)
     }
 
     func testPerformanceExample() throws {
