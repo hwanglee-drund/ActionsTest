@@ -6,13 +6,16 @@ on:
   pull_request:
     branches: [ "main" ]
 
+    name: tests
+
+on: [push]
+
 jobs:
   run_tests:
     runs-on: macos-13
-    name: test iOS (${{ matrix.ios }})
     steps:
     - uses: actions/checkout@v1
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_15.1.app && /usr/bin/xcodebuild -version
-    - name: Run unit tests
-      run: xcodebuild test -scheme ActionsTest -project ActionsTest.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 15,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
+    - name: Run tests
+      run: xcodebuild test -scheme ActionsTest -project ActionsTest.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' | xcpretty && exit ${PIPESTATUS[0]}
